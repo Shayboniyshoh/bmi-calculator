@@ -1,5 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'icon_content.dart';
 import 'reusable_card.dart';
+
+const btmContHeight = 80.0;
+const activeCardClr = Color(0xFF1D1E33);
+const btmContClr = Color(0xFFEB1555);
 
 class InputPage extends StatefulWidget {
   const InputPage({super.key});
@@ -20,34 +26,53 @@ class _InputPageState extends State<InputPage> {
           ),
         ),
       ),
-      body: const Column(
+      body: Column(
         children: [
-          Expanded(
+          const Expanded(
             child: Row(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 Expanded(
-                  child: ReUsableCard(colour: Color(0xFF1D1E33)),
+                  child: ReUsableCard(
+                    colour: activeCardClr,
+                    childCard: ChildCard(
+                      ctmIcon: FontAwesomeIcons.mars,
+                      cardText: "MALE",
+                    ),
+                  ),
                 ),
                 Expanded(
-                  child: ReUsableCard(colour: Color(0xFF1D1E33)),
+                  child: ReUsableCard(
+                    colour: activeCardClr,
+                    childCard: ChildCard(
+                      ctmIcon: FontAwesomeIcons.venus,
+                      cardText: "FEMALE",
+                    ),
+                  ),
                 ),
               ],
             ),
           ),
-          Expanded(
-            child: ReUsableCard(colour: Color(0xFF1D1E33)),
+          const Expanded(
+            child: ReUsableCard(colour: activeCardClr),
           ),
-          Expanded(
+          const Expanded(
             child: Row(
               children: [
                 Expanded(
-                  child: ReUsableCard(colour: Color(0xFF1D1E33)),
+                  child: ReUsableCard(colour: activeCardClr),
                 ),
                 Expanded(
-                  child: ReUsableCard(colour: Color(0xFF1D1E33)),
+                  child: ReUsableCard(colour: activeCardClr),
                 ),
               ],
             ),
+          ),
+          Container(
+            height: btmContHeight,
+            width: double.infinity,
+            color: btmContClr,
+            margin: const EdgeInsets.only(top: 10.0),
           ),
         ],
       ),
