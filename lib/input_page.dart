@@ -22,7 +22,7 @@ class _InputPageState extends State<InputPage> {
         elevation: 4.0,
         title: const Center(
           child: Text(
-            'BMI CALCULATOR',
+            'AWESOME BMI CALCULATOR',
           ),
         ),
       ),
