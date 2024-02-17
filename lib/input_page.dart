@@ -5,7 +5,10 @@ import 'reusable_card.dart';
 
 const btmContHeight = 80.0;
 const activeCardClr = Color(0xFF1D1E33);
+const inactiveCardClr = Color(0xFF111328);
 const btmContClr = Color(0xFFEB1555);
+
+enum Gender { male, female }
 
 class InputPage extends StatefulWidget {
   const InputPage({super.key});
@@ -15,6 +18,10 @@ class InputPage extends StatefulWidget {
 }
 
 class _InputPageState extends State<InputPage> {
+  Color maleCardClr = inactiveCardClr;
+  Color femaleCardClr = inactiveCardClr;
+  Gender? selectedGender;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,14 +35,21 @@ class _InputPageState extends State<InputPage> {
       ),
       body: Column(
         children: [
-          const Expanded(
+          Expanded(
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 Expanded(
                   child: ReUsableCard(
-                    colour: activeCardClr,
-                    childCard: ChildCard(
+                    onPress: () {
+                      setState(() {
+                        selectedGender = Gender.male;
+                      });
+                    },
+                    colour: selectedGender == Gender.male
+                        ? activeCardClr
+                        : inactiveCardClr,
+                    childCard: const ChildCard(
                       ctmIcon: FontAwesomeIcons.mars,
                       cardText: "MALE",
                     ),
@@ -43,8 +57,15 @@ class _InputPageState extends State<InputPage> {
                 ),
                 Expanded(
                   child: ReUsableCard(
-                    colour: activeCardClr,
-                    childCard: ChildCard(
+                    onPress: () {
+                      setState(() {
+                        selectedGender = Gender.female;
+                      });
+                    },
+                    colour: selectedGender == Gender.female
+                        ? activeCardClr
+                        : femaleCardClr,
+                    childCard: const ChildCard(
                       ctmIcon: FontAwesomeIcons.venus,
                       cardText: "FEMALE",
                     ),
@@ -54,16 +75,22 @@ class _InputPageState extends State<InputPage> {
             ),
           ),
           const Expanded(
-            child: ReUsableCard(colour: activeCardClr),
+            child: ReUsableCard(
+              colour: activeCardClr,
+            ),
           ),
           const Expanded(
             child: Row(
               children: [
                 Expanded(
-                  child: ReUsableCard(colour: activeCardClr),
+                  child: ReUsableCard(
+                    colour: activeCardClr,
+                  ),
                 ),
                 Expanded(
-                  child: ReUsableCard(colour: activeCardClr),
+                  child: ReUsableCard(
+                    colour: activeCardClr,
+                  ),
                 ),
               ],
             ),
