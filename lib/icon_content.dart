@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
-
-const labelStyle = TextStyle(
-  fontSize: 18.0,
-  color: Color(0xFF8D8E98),
-);
+import 'constans.dart';
 
 class ChildCard extends StatelessWidget {
   const ChildCard({
@@ -28,7 +24,7 @@ class ChildCard extends StatelessWidget {
         Text(
           cardText,
           textAlign: TextAlign.center,
-          style: labelStyle,
+          style: kLabelStyle,
         ),
       ],
     );
