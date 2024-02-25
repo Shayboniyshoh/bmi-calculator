@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'constans.dart';
+import 'package:bmi_calculator/constans.dart';
 
 class ChildCard extends StatelessWidget {
   const ChildCard({

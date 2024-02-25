@@ -1,9 +1,10 @@
+import 'package:bmi_calculator/components/bottom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'icon_content.dart';
-import 'reusable_card.dart';
-import 'constans.dart';
-import 'round_icon_button.dart';
+import 'package:bmi_calculator/components/icon_content.dart';
+import 'package:bmi_calculator/components/reusable_card.dart';
+import 'package:bmi_calculator/constans.dart';
+import 'package:bmi_calculator/components/round_icon_button.dart';
 
 enum Gender { male, female }
 
@@ -21,6 +22,7 @@ class _InputPageState extends State<InputPage> {
   int height = 180;
   int weight = 80;
   int age = 18;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -216,23 +218,10 @@ class _InputPageState extends State<InputPage> {
               ],
             ),
           ),
-          GestureDetector(
-            onTap: () => Navigator.pushNamed(context, '/calculate'),
-            child: Container(
-              height: kBtmContHeight,
-              width: double.infinity,
-              color: kBtmContClr,
-              margin: const EdgeInsets.only(top: 10.0),
-              child: const Center(
-                child: Text(
-                  'CALCULATE',
-                  style: TextStyle(
-                    fontWeight: FontWeight.w700,
-                    fontSize: 24.0,
-                  ),
-                ),
-              ),
-            ),
+          BottomButton(
+            pageName: '/calculate',
+            onTap: () {},
+            buttonTitle: 'CALCULATE',
           ),
         ],
       ),
