@@ -6,12 +6,12 @@ import 'package:bmi_calculator/components/bottom_button.dart';
 class ResultsPage extends StatelessWidget {
   const ResultsPage({
     super.key,
-    required this.getResult,
     required this.bmiCalculate,
+    required this.getResult,
     required this.getDescription,
   });
-  final String getResult;
   final String bmiCalculate;
+  final String getResult;
   final String getDescription;
 
   @override
